@@ -7,9 +7,9 @@ if [ "$1" = 'splunk' ]; then
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
 elif [ "$1" = 'start-service' ]; then
   # If user changed SPLUNK_USER to root we want to change permission for SPLUNK_HOME
-  if [[ "${SPLUNK_USER}:${SPLUNK_GROUP}" != "$(stat --format %U:%G ${SPLUNK_HOME})" ]]; then
-    chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}
-  fi
+#  if [[ "${SPLUNK_USER}:${SPLUNK_GROUP}" != "$(stat --format %U:%G ${SPLUNK_HOME})" ]]; then
+#    chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}
+#  fi
 
   # If version file exists already - this Splunk has been configured before
   __configured=false
