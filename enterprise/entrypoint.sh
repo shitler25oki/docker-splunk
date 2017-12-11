@@ -2,6 +2,8 @@
 
 set -e
 
+echo "Called with " $@
+
 sleep 5000
 if [ "$1" = 'splunk' ]; then
   shift
