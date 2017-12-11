@@ -2,6 +2,7 @@
 
 set -e
 
+sleep 5000
 if [ "$1" = 'splunk' ]; then
   shift
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
@@ -58,7 +59,6 @@ EOF
     exit 1
   fi
 
-  sleep 5000
   if [[ $__configured == "false" ]]; then
     # If we have not configured yet allow user to specify some commands which can be executed before we start Splunk for the first time
     if [[ -n ${SPLUNK_BEFORE_START_CMD} ]]; then
