@@ -57,7 +57,7 @@ EXPOSE 8000 8089 8191 9997 1514 8088
 WORKDIR /opt/splunk
 
 # Configurations folder, var folder for everything (indexes, logs, kvstore)
-#VOLUME [ "/opt/splunk/etc", "/opt/splunk/var" ]
+VOLUME [ "/opt/splunk/etc", "/opt/splunk/var" ]
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["start-service"]
