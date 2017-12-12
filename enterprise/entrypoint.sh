@@ -17,6 +17,9 @@ fi
 START_SLEEP_TIMER=${START_SLEEP_TIMER:-0}
 sleep ${START_SLEEP_TIMER}
 
+# Copy over the UI module so that splunk doesn't try to
+cp -rp ${SPLUNK_HOME}/share/splunk/search_mrsparkle/modules.new ${SPLUNK_HOME}/share/splunk/search_mrsparkle/modules
+
 # If version file exists already - this Splunk has been configured before
 __configured=false
 if [[ -f ${SPLUNK_HOME}/etc/splunk.version ]]; then
