@@ -55,7 +55,6 @@ RUN chmod g+w /etc/passwd
 #COPY ./Splunk_Enterprise_Q3FY17.lic /var/opt/splunk/etc/licenses/download-trial/Splunk_Enterprise_Q3FY17.lic
 
 # Ports Splunk Web, Splunk Daemon, KVStore, Splunk Indexing Port, Network Input, HTTP Event Collector
-#EXPOSE 8000/tcp 8089/tcp 8191/tcp 9997/tcp 1514 8088/tcp
 EXPOSE 8000 8089 8191 9997 1514 8088
 
 WORKDIR /opt/splunk
