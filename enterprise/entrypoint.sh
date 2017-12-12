@@ -4,9 +4,6 @@ set -e
 
 echo "Called with " $@
 
-# Allow a sleep variable for troubleshooting
-START_SLEEP_TIMER=${START_SLEEP_TIMER:-0}
-sleep ${START_SLEEP_TIMER}
 
 # Update the /etc/passwd file with the correct info for the splunk user
 if [ `id -u` -ge 10000 ]; then
@@ -15,6 +12,10 @@ if [ `id -u` -ge 10000 ]; then
     cat /tmp/passwd > /etc/passwd
     rm /tmp/passwd
 fi
+
+# Allow a sleep variable for troubleshooting
+START_SLEEP_TIMER=${START_SLEEP_TIMER:-0}
+sleep ${START_SLEEP_TIMER}
 
 # If version file exists already - this Splunk has been configured before
 __configured=false
