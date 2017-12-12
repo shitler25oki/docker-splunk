@@ -50,7 +50,6 @@ RUN chmod +x /sbin/entrypoint.sh
 # Adjust permissions on /etc/passwd so writable by group root
 RUN chmod g+w /etc/passwd
 
-
 # Copy new license
 #COPY ./Splunk_Enterprise_Q3FY17.lic /var/opt/splunk/etc/licenses/download-trial/Splunk_Enterprise_Q3FY17.lic
 
