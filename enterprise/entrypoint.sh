@@ -4,6 +4,8 @@ set -e
 
 echo "Called with " $@
 
+sleep 1000
+
 if [ "$1" = 'splunk' ]; then
   shift
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
