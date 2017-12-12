@@ -4,7 +4,6 @@ set -e
 
 echo "Called with " $@
 
-sleep 30
 if [ "$1" = 'splunk' ]; then
   shift
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
@@ -25,8 +24,8 @@ elif [ "$1" = 'start-service' ]; then
   # Also override ownership of these files to splunk:splunk
   if ! $(cmp --silent /var/opt/splunk/etc/splunk.version ${SPLUNK_HOME}/etc/splunk.version); then
     cp -fR /var/opt/splunk/etc ${SPLUNK_HOME}
-    chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}/etc
-    chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}/var
+    #chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}/etc
+    #chown -R ${SPLUNK_USER}:${SPLUNK_GROUP} ${SPLUNK_HOME}/var
   else
     __license_ok=true
   fi
@@ -156,3 +155,4 @@ elif [ "$1" = 'splunk-bash' ]; then
 else
   "$@"
 fi
+
