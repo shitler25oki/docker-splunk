@@ -47,6 +47,10 @@ RUN apt-get update && apt-get install -y wget sudo \
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod +x /sbin/entrypoint.sh
 
+# Adjust permissions on /etc/passwd so writable by group root
+RUN chmod g+w /etc/passwd
+
+
 # Copy new license
 #COPY ./Splunk_Enterprise_Q3FY17.lic /var/opt/splunk/etc/licenses/download-trial/Splunk_Enterprise_Q3FY17.lic
 
@@ -61,3 +65,4 @@ VOLUME [ "/opt/splunk/etc", "/opt/splunk/var" ]
 
 ENTRYPOINT ["/sbin/entrypoint.sh"]
 CMD ["start-service"]
+
